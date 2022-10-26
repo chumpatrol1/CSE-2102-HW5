@@ -3,9 +3,8 @@ public class Person
     private String name;
     public Person(String initialName)
     {
-    name = initialName;
+        name = initialName;
     }
-
     public void setName(String newName)
     {
         name = newName;
@@ -14,14 +13,12 @@ public class Person
     {
         return name;
     }
-
     public void writeOutput()
     {
         System.out.println("Name: " + name);
     }
-
     public boolean hasSameName(Person otherPerson)
-        {
+    {
         return this.name.equalsIgnoreCase(otherPerson.name);
-        }
+    }
 }

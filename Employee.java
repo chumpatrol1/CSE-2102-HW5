@@ -1,66 +1,78 @@
 public class Employee extends Person
-{
-    private double salary;
-    private int hireDate;
-    private String employee_id;
-    public Student(String initialName, int cur_salary, int hired, String emp_id)
+{   
+    // Declare variables
+    private String employeeId;
+    private int employeeYearHired;
+    private double employeeSalary;
+
+    // Initialize the Employee
+    public Employee(String initialName, String initialId, double salary, int yoh)
     {
         super(initialName);
-        salary = cur_salary;
-        hireDate = hired;
-        employee_id = emp_id;
+        employeeId = initialId;
+        employeeYearHired = yoh;
+        employeeSalary = salary;
     }
-
-    public void reset(String newName, int newStudentNumber)
+    // Reset function
+    public void reset(String newName, double newSalary)
     {
         setName(newName);
-        studentNumber = newStudentNumber;
+        employeeSalary = newSalary;
     }
-
-    public int getEmployeeID()
+    //Gets employee name
+    public String getEmployeeName()
     {
-        return employee_id;
+        return getName();
     }
-    
-    public void setEmployeeID(String newEmployeeID)
+    //Gets employee ID
+    public String getEmployeeId()
     {
-        employee_id = newEmployeeID;
+        return employeeId;
     }
-
-    public int getHireDate()
+    //gets employee salary
+    public double getEmployeeSalary()
     {
-        return employee_id;
+        return employeeSalary;
     }
-    
-    public void setHireDate(int new_hd)
+    //gets the start year of the employee
+    public int getYoh()
     {
-        hireDate = new_hd;
+        return employeeYearHired;
     }
-
-    public double getSalary()
+    // Sets the name of the employee
+    public void setEmployeeName(String newName)
     {
-        return employee_id;
+        setName(newName);
     }
-    
-    public void setSalary(double new_sal)
+    // Sets the employee ID
+    public void setEmployeeId(String newId)
     {
-        salary = new_sal;
+        employeeId = newId;
     }
-    
+    // Sets the employee's salary
+    public void setEmployeeSalary(double newSalary)
+    {
+        employeeSalary = newSalary;
+    }
+    // Sets the employee's year of hire
+    public void setEmployeeYear(int newYoh)
+    {
+        employeeYearHired = newYoh;
+    }
+    // Writes the output, including name, id, salary and year of hire
     public void writeOutput()
     {
-        System.out.println("Name: " + getName( ));
-        System.out.println("Employee ID: " + getEmployeeID());
-        System.out.println("Hire Date: " + getHireDate());
-        System.out.println("Salary: " + getSalary());
+        System.out.println("Name: " + getName());
+        System.out.println("Employee ID: " + employeeId);
+        System.out.println(String.format("Salary: %.1f", employeeSalary));
+        System.out.println("Year of hire: " + employeeYearHired);
     }
-    
+    // Check if equal to another employee
     public boolean equals(Employee otherEmployee)
     {
         return this.hasSameName(otherEmployee) &&
-        (this.employee_id == otherEmployee.employee_id) && 
-        (this.hireDate == otherEmployee.hireDate) &&
-        (this.salary == otherEmployee.salary);
+                (this.employeeId == otherEmployee.employeeId) &&
+                (this.employeeSalary == otherEmployee.employeeSalary) &&
+                (this.employeeYearHired == otherEmployee.employeeYearHired);
     }
-
 }
